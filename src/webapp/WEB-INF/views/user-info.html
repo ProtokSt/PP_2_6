@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>User Info</title>
+    <style>
+        .buttonAdd {
+            color: blue;
+            background: yellow;
+        }
+        .buttonAdd:hover {
+            color: red;
+            background: yellow;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+<h2>User Info</h2>
+<br>
+<form th:action="@{/saveUser}" th:object="${user}">
+<!--    https://www.baeldung.com/spring-thymeleaf-hidden-inputs-->
+    <input type="hidden" th:field="*{id}" id="id">
+    <label for="name">Name</label>
+    <input type="text" th:field="*{name}" id="name"/>
+    <br>
+    <br>
+    <label for="surname">Surname</label>
+    <input type="text" th:field="*{surname}" id="surname"/>
+    <br>
+    <br>
+    <label for="department">Department</label>
+    <input type="text" th:field="*{department}" id="department"/>
+    <br>
+    <br>
+    <label for="salary">Salary</label>
+    <input type="number" th:field="*{salary}" id="salary"/>
+    <br>
+    <br>
+    <input type="submit" class="buttonAdd" value="OK"/>
+</form>
+</body>
+</html>
